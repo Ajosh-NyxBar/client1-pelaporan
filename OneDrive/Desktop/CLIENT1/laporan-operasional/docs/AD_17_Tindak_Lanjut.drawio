@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net" modified="2026-04-15T06:10:00.000Z" agent="Antigravity" version="24.0.0" type="device">
+  <diagram id="ad-17" name="AD_17: Tindak Lanjut">
+    <mxGraphModel dx="1022" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="580" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="&lt;b&gt;ACTIVITY DIAGRAM&lt;/b&gt;&lt;br&gt;Tindak Lanjut Perbaikan / Monitoring" style="text;html=1;fontSize=14;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="175" y="10" width="450" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="2" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1A1A2E;strokeColor=#1A1A2E;" vertex="1" parent="1">
+          <mxGeometry x="385" y="70" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="3" value="Pilih Laporan Tervalidasi&lt;br&gt;dari Daftar" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="270" y="130" width="260" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="4" value="Lihat Detail Laporan&lt;br&gt;(Info Lengkap + Foto)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="270" y="210" width="260" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="5" value="Gunakan Data Laporan&lt;br&gt;untuk Tindak Lanjut / Analisis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="255" y="290" width="290" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="6" value="Catat Hasil&lt;br&gt;Tindak Lanjut Perbaikan" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="270" y="370" width="260" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="7" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1A1A2E;strokeColor=#333333;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="385" y="455" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" value="" style="rounded=1;orthogonalLoop=1;jettySize=auto;strokeColor=#666666;strokeWidth=1.5;endArrow=classic;html=1;" edge="1" source="2" target="3" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="" style="rounded=1;orthogonalLoop=1;jettySize=auto;strokeColor=#666666;strokeWidth=1.5;endArrow=classic;html=1;" edge="1" source="3" target="4" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="" style="rounded=1;orthogonalLoop=1;jettySize=auto;strokeColor=#666666;strokeWidth=1.5;endArrow=classic;html=1;" edge="1" source="4" target="5" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="" style="rounded=1;orthogonalLoop=1;jettySize=auto;strokeColor=#666666;strokeWidth=1.5;endArrow=classic;html=1;" edge="1" source="5" target="6" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="" style="rounded=1;orthogonalLoop=1;jettySize=auto;strokeColor=#666666;strokeWidth=1.5;endArrow=classic;html=1;" edge="1" source="6" target="7" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="note" value="&lt;i&gt;Sumber: Dokumentasi internal, disusun oleh penulis (2026)&lt;/i&gt;" style="text;html=1;fontSize=9;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="250" y="500" width="300" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.LaporanOps.AppBarOverlay"
+        app:elevation="0dp">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/primary"
+            app:title="Detail Laporan"
+            app:titleTextColor="#FFFFFF" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <ProgressBar android:id="@+id/progressBar"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_gravity="center" android:layout_marginVertical="16dp" android:visibility="gone" />
+
+            <!-- ─── Status + Code Header Card ─── -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="16dp"
+                app:strokeColor="@color/card_stroke"
+                app:strokeWidth="0.5dp"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Code + Status Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView android:id="@+id/tvCode"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/primary"
+                            android:letterSpacing="0.02"
+                            android:text="RPT-CODE" />
+
+                        <TextView android:id="@+id/tvStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:paddingHorizontal="14dp"
+                            android:paddingVertical="6dp"
+                            android:text="Status" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Detail Info with labels -->
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Jenis Pekerjaan" android:textSize="11sp" android:textColor="@color/text_secondary"
+                        android:textAllCaps="true" android:letterSpacing="0.06" />
+                    <TextView android:id="@+id/tvJenis"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:textSize="15sp" android:textStyle="bold" android:textColor="@color/text_primary"
+                        android:layout_marginBottom="14dp" android:layout_marginTop="2dp" android:text="–" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Teknisi" android:textSize="11sp" android:textColor="@color/text_secondary"
+                        android:textAllCaps="true" android:letterSpacing="0.06" />
+                    <TextView android:id="@+id/tvTeknisi"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:textSize="14sp" android:textColor="@color/text_primary"
+                        android:layout_marginBottom="14dp" android:layout_marginTop="2dp" android:text="–" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Lokasi" android:textSize="11sp" android:textColor="@color/text_secondary"
+                        android:textAllCaps="true" android:letterSpacing="0.06" />
+                    <TextView android:id="@+id/tvLokasi"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:textSize="14sp" android:textColor="@color/text_primary"
+                        android:layout_marginBottom="14dp" android:layout_marginTop="2dp" android:text="–" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Waktu Kerja" android:textSize="11sp" android:textColor="@color/text_secondary"
+                        android:textAllCaps="true" android:letterSpacing="0.06" />
+                    <TextView android:id="@+id/tvWaktu"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:textSize="14sp" android:textColor="@color/text_primary"
+                        android:layout_marginBottom="14dp" android:layout_marginTop="2dp" android:text="–" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Deskripsi" android:textSize="11sp" android:textColor="@color/text_secondary"
+                        android:textAllCaps="true" android:letterSpacing="0.06" />
+                    <TextView android:id="@+id/tvDeskripsi"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:textSize="14sp" android:textColor="@color/text_primary"
+                        android:lineSpacingMultiplier="1.3"
+                        android:layout_marginBottom="14dp" android:layout_marginTop="2dp" android:text="–" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Tanggal Kirim" android:textSize="11sp" android:textColor="@color/text_secondary"
+                        android:textAllCaps="true" android:letterSpacing="0.06" />
+                    <TextView android:id="@+id/tvTanggal"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:textSize="14sp" android:textColor="@color/text_primary"
+                        android:layout_marginBottom="14dp" android:layout_marginTop="2dp" android:text="–" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/divider"
+                        android:layout_marginBottom="10dp" />
+
+                    <TextView android:id="@+id/tvFotoCount"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:textSize="12sp" android:textColor="@color/primary"
+                        android:textStyle="bold"
+                        android:text="📷 0 foto terlampir" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ─── Foto Laporan ─── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardFoto"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardElevation="2dp" app:cardCornerRadius="16dp"
+                app:strokeColor="@color/card_stroke" app:strokeWidth="0.5dp"
+                android:layout_marginBottom="12dp"
+                android:visibility="gone">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="24dp"
+                            android:background="@color/accent"
+                            android:layout_marginEnd="10dp" />
+
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Foto Pendukung" style="@style/SectionTitle" />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvPhotos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:clipToPadding="false" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ─── Catatan Validasi ─── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardCatatan"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardElevation="2dp" app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="@color/status_pending_light"
+                app:strokeColor="#FFE0B2" app:strokeWidth="1dp"
+                android:layout_marginBottom="12dp"
+                android:visibility="gone">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="24dp"
+                            android:background="@color/status_pending"
+                            android:layout_marginEnd="10dp" />
+
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Catatan Validasi" android:textSize="15sp" android:textStyle="bold"
+                            android:textColor="#E65100" />
+                    </LinearLayout>
+
+                    <TextView android:id="@+id/tvCatatan"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:textSize="14sp" android:textColor="@color/text_primary"
+                        android:lineSpacingMultiplier="1.3"
+                        android:text="–" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ─── Tindak Lanjut (existing, read-only) ─── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardTindakLanjut"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardElevation="2dp" app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="@color/status_approved_light"
+                app:strokeColor="#C8E6C9" app:strokeWidth="1dp"
+                android:layout_marginBottom="12dp"
+                android:visibility="gone">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="24dp"
+                            android:background="@color/status_approved"
+                            android:layout_marginEnd="10dp" />
+
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Tindak Lanjut" android:textSize="15sp" android:textStyle="bold"
+                            android:textColor="@color/status_approved" />
+                    </LinearLayout>
+
+                    <TextView android:id="@+id/tvTindakLanjut"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:textSize="14sp" android:textColor="@color/text_primary"
+                        android:lineSpacingMultiplier="1.3" android:text="–" />
+
+                    <TextView android:id="@+id/tvTindakLanjutInfo"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:textSize="11sp" android:textColor="@color/text_secondary"
+                        android:layout_marginTop="8dp" android:text="" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ─── Tindak Lanjut Input (helpdesk only) ─── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardInputTindakLanjut"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardElevation="2dp" app:cardCornerRadius="16dp"
+                app:strokeColor="@color/card_stroke" app:strokeWidth="0.5dp"
+                android:layout_marginBottom="12dp"
+                android:visibility="gone">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="24dp"
+                            android:background="@color/role_helpdesk"
+                            android:layout_marginEnd="10dp" />
+
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Input Tindak Lanjut" style="@style/SectionTitle" />
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilTindakLanjut"
+                        style="@style/InputField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Catatan tindak lanjut perbaikan/monitoring..."
+                        android:layout_marginBottom="14dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etTindakLanjut"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textMultiLine"
+                            android:minLines="3"
+                            android:maxLines="6"
+                            android:gravity="top" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSimpanTindakLanjut"
+                        style="@style/RoundedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:text="💾 Simpan Tindak Lanjut"
+                        android:textSize="13sp"
+                        app:backgroundTint="@color/role_helpdesk" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ─── Validasi Buttons (admin) ─── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardValidasi"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardElevation="3dp" app:cardCornerRadius="16dp"
+                app:strokeColor="@color/card_stroke" app:strokeWidth="0.5dp"
+                android:visibility="gone">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="24dp"
+                            android:background="@color/primary"
+                            android:layout_marginEnd="10dp" />
+
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Validasi Laporan" style="@style/SectionTitle" />
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnApprove"
+                            style="@style/RoundedButton"
+                            android:layout_width="0dp" android:layout_height="48dp"
+                            android:layout_weight="1" android:layout_marginEnd="8dp"
+                            android:text="✅ Setujui"
+                            android:textSize="13sp"
+                            app:backgroundTint="@color/status_approved" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnReject"
+                            style="@style/RoundedButton"
+                            android:layout_width="0dp" android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:text="❌ Tolak"
+                            android:textSize="13sp"
+                            app:backgroundTint="@color/status_rejected" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

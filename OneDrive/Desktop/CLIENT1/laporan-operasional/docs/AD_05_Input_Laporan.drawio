@@ -1,0 +1,104 @@
+<mxfile host="app.diagrams.net" modified="2026-04-15T06:10:00.000Z" agent="Antigravity" version="24.0.0" type="device">
+  <diagram id="ad-05" name="AD_05: Input Laporan Pekerjaan">
+    <mxGraphModel dx="1022" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="&lt;b&gt;ACTIVITY DIAGRAM&lt;/b&gt;&lt;br&gt;Input Laporan Pekerjaan" style="text;html=1;fontSize=14;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="225" y="10" width="350" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="2" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1A1A2E;strokeColor=#1A1A2E;" vertex="1" parent="1">
+          <mxGeometry x="385" y="60" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="3" value="Klik Tombol (+)&lt;br&gt;Tambah Laporan" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="290" y="115" width="220" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="4" value="Tampilkan&lt;br&gt;Form Input Laporan" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="290" y="195" width="220" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="5" value="Input Data Laporan&lt;br&gt;(Jenis, Lokasi, Tanggal, Deskripsi)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="270" y="275" width="260" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="6" value="Upload Foto Pendukung&lt;br&gt;(Maks. 5 Foto)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="290" y="355" width="220" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="7" value="Klik Tombol&lt;br&gt;Kirim Laporan" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="290" y="435" width="220" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="8" value="Semua&lt;br&gt;Field&lt;br&gt;Terisi?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="515" width="120" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="9" value="Tampilkan&lt;br&gt;Pesan Error" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="530" y="530" width="150" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="10" value="Simpan Laporan ke Database&lt;br&gt;(Status: Menunggu Validasi)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="270" y="635" width="260" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="11" value="Generate Kode Laporan&lt;br&gt;(RPT-YYYYMMDD-XXXX)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="270" y="715" width="260" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="12" value="Tampilkan Pesan&lt;br&gt;Laporan Berhasil Dikirim" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="270" y="795" width="260" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="13" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1A1A2E;strokeColor=#333333;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="385" y="880" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Edges -->
+        <mxCell id="e1" value="" style="rounded=1;orthogonalLoop=1;jettySize=auto;strokeColor=#666666;strokeWidth=1.5;endArrow=classic;html=1;" edge="1" source="2" target="3" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="" style="rounded=1;orthogonalLoop=1;jettySize=auto;strokeColor=#666666;strokeWidth=1.5;endArrow=classic;html=1;" edge="1" source="3" target="4" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="" style="rounded=1;orthogonalLoop=1;jettySize=auto;strokeColor=#666666;strokeWidth=1.5;endArrow=classic;html=1;" edge="1" source="4" target="5" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="" style="rounded=1;orthogonalLoop=1;jettySize=auto;strokeColor=#666666;strokeWidth=1.5;endArrow=classic;html=1;" edge="1" source="5" target="6" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="" style="rounded=1;orthogonalLoop=1;jettySize=auto;strokeColor=#666666;strokeWidth=1.5;endArrow=classic;html=1;" edge="1" source="6" target="7" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="" style="rounded=1;orthogonalLoop=1;jettySize=auto;strokeColor=#666666;strokeWidth=1.5;endArrow=classic;html=1;" edge="1" source="7" target="8" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="Tidak" style="rounded=1;orthogonalLoop=1;jettySize=auto;strokeColor=#CC0000;strokeWidth=1.5;endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=10;fontStyle=1;fontColor=#CC0000;" edge="1" source="8" target="9" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="" style="rounded=1;orthogonalLoop=1;jettySize=auto;strokeColor=#b85450;strokeWidth=1.5;endArrow=classic;html=1;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="9" target="4" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="Ya" style="rounded=1;orthogonalLoop=1;jettySize=auto;strokeColor=#009900;strokeWidth=1.5;endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=10;fontStyle=1;fontColor=#009900;" edge="1" source="8" target="10" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" value="" style="rounded=1;orthogonalLoop=1;jettySize=auto;strokeColor=#666666;strokeWidth=1.5;endArrow=classic;html=1;" edge="1" source="10" target="11" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" value="" style="rounded=1;orthogonalLoop=1;jettySize=auto;strokeColor=#666666;strokeWidth=1.5;endArrow=classic;html=1;" edge="1" source="11" target="12" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" value="" style="rounded=1;orthogonalLoop=1;jettySize=auto;strokeColor=#666666;strokeWidth=1.5;endArrow=classic;html=1;" edge="1" source="12" target="13" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="note" value="&lt;i&gt;Sumber: Dokumentasi internal, disusun oleh penulis (2026)&lt;/i&gt;" style="text;html=1;fontSize=9;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="250" y="925" width="300" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

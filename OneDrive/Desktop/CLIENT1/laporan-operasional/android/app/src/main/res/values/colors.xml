@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Colors — Modern Indigo-Violet Palette -->
+    <color name="primary">#3F51B5</color>
+    <color name="primary_dark">#283593</color>
+    <color name="primary_light">#7986CB</color>
+    <color name="primary_pale">#E8EAF6</color>
+    <color name="accent">#FF6D00</color>
+    <color name="accent_light">#FFAB40</color>
+
+    <!-- Gradient Colors -->
+    <color name="gradient_start">#283593</color>
+    <color name="gradient_center">#3949AB</color>
+    <color name="gradient_end">#5C6BC0</color>
+
+    <!-- Semantic / Status Colors -->
+    <color name="status_pending">#FB8C00</color>
+    <color name="status_pending_light">#FFF3E0</color>
+    <color name="status_approved">#43A047</color>
+    <color name="status_approved_light">#E8F5E9</color>
+    <color name="status_rejected">#E53935</color>
+    <color name="status_rejected_light">#FFEBEE</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#1A1C1E</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="text_hint">#9CA3AF</color>
+    <color name="text_on_primary">#FFFFFF</color>
+    <color name="text_on_surface_variant">#49454F</color>
+
+    <!-- Background Colors -->
+    <color name="background_primary">#F3F4F8</color>
+    <color name="background_card">#FFFFFF</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#F0F0F6</color>
+
+    <!-- Role Colors -->
+    <color name="role_teknisi">#3F51B5</color>
+    <color name="role_teknisi_gradient_end">#5C6BC0</color>
+    <color name="role_admin">#7B1FA2</color>
+    <color name="role_admin_gradient_end">#AB47BC</color>
+    <color name="role_helpdesk">#00796B</color>
+    <color name="role_helpdesk_gradient_end">#26A69A</color>
+
+    <!-- Misc -->
+    <color name="divider">#E5E7EB</color>
+    <color name="shadow">#14000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="ripple_light">#1AFFFFFF</color>
+    <color name="card_stroke">#E0E3E9</color>
+    <color name="input_background">#F8F9FC</color>
+    <color name="overlay_dark">#4D000000</color>
+</resources>

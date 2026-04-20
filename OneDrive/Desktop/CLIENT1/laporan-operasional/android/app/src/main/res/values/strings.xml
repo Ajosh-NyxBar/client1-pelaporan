@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Laporan Operasional</string>
+    <string name="app_desc">Sistem Pelaporan Terpadu</string>
+
+    <!-- Login -->
+    <string name="label_username">Username</string>
+    <string name="label_password">Password</string>
+    <string name="btn_login">MASUK</string>
+    <string name="btn_processing">Memproses…</string>
+
+    <!-- Report Status -->
+    <string name="status_menunggu">⏳ Menunggu Validasi</string>
+    <string name="status_disetujui">✅ Disetujui</string>
+    <string name="status_ditolak">❌ Ditolak</string>
+
+    <!-- Dashboard -->
+    <string name="label_total">Total</string>
+    <string name="label_menunggu">Menunggu</string>
+    <string name="label_disetujui">Disetujui</string>
+    <string name="label_ditolak">Ditolak</string>
+    <string name="empty_laporan">Belum ada laporan.\nTarik ke bawah untuk refresh.</string>
+
+    <!-- Tambah Laporan -->
+    <string name="hint_jenis">Jenis Pekerjaan (mis. Perbaikan Jaringan)</string>
+    <string name="hint_lokasi">Lokasi (Gedung / Area)</string>
+    <string name="hint_deskripsi">Deskripsi pekerjaan yang dilakukan…</string>
+    <string name="btn_pilih_waktu">📅 Pilih Tanggal &amp; Waktu</string>
+    <string name="btn_pilih_foto">📷 Pilih Foto (maks. 5)</string>
+    <string name="btn_kirim">KIRIM LAPORAN</string>
+
+    <!-- Validasi -->
+    <string name="btn_approve">✅ Setujui</string>
+    <string name="btn_reject">❌ Tolak</string>
+    <string name="label_catatan_validasi">Catatan Validasi</string>
+</resources>

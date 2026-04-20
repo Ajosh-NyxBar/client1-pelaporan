@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="135"
+                android:startColor="@color/gradient_start"
+                android:centerColor="@color/gradient_center"
+                android:endColor="@color/gradient_end"
+                android:type="linear" />
+            <corners android:radius="24dp" />
+        </shape>
+    </item>
+    <!-- Decorative overlay circle -->
+    <item android:top="-80dp" android:right="-40dp">
+        <shape android:shape="oval">
+            <solid android:color="#10FFFFFF" />
+            <size android:width="200dp" android:height="200dp" />
+        </shape>
+    </item>
+    <item android:bottom="-60dp" android:left="-30dp">
+        <shape android:shape="oval">
+            <solid android:color="#08FFFFFF" />
+            <size android:width="160dp" android:height="160dp" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,27 @@
+<mxfile host="app.diagrams.net" modified="2026-04-16T02:46:00.000Z" agent="Antigravity" version="24.0.0" type="device">
+  <diagram id="sd-08" name="SD_08: Lihat Dashboard Admin">
+    <mxGraphModel dx="1222" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;SEQUENCE DIAGRAM&lt;/b&gt;&lt;br&gt;Lihat Dashboard Admin" style="text;html=1;fontSize=14;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#000000;" vertex="1" parent="1"><mxGeometry x="350" y="10" width="400" height="40" as="geometry" /></mxCell>
+        <mxCell id="h1" value="Admin" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontSize=12;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="100" y="80" width="120" height="40" as="geometry" /></mxCell>
+        <mxCell id="l1" value="" style="endArrow=none;dashed=1;dashPattern=4 4;strokeColor=#000000;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="160" y="120" as="sourcePoint" /><mxPoint x="160" y="460" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="h2" value="Halaman&lt;br&gt;Dashboard" style="shape=umlBoundary;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontSize=11;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="310" y="60" width="140" height="70" as="geometry" /></mxCell>
+        <mxCell id="l2" value="" style="endArrow=none;dashed=1;dashPattern=4 4;strokeColor=#000000;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="390" y="130" as="sourcePoint" /><mxPoint x="390" y="460" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="h3" value="DashboardController" style="shape=umlControl;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontSize=10;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="575" y="55" width="130" height="75" as="geometry" /></mxCell>
+        <mxCell id="l3" value="" style="endArrow=none;dashed=1;dashPattern=4 4;strokeColor=#000000;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="640" y="130" as="sourcePoint" /><mxPoint x="640" y="460" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="h4" value="Database" style="shape=umlEntity;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontSize=11;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="830" y="60" width="100" height="70" as="geometry" /></mxCell>
+        <mxCell id="l4" value="" style="endArrow=none;dashed=1;dashPattern=4 4;strokeColor=#000000;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="880" y="130" as="sourcePoint" /><mxPoint x="880" y="460" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m1" value="1: Akses Dashboard Admin" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;rounded=0;strokeColor=#000000;fontSize=11;fontColor=#000000;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="160" y="160" as="sourcePoint" /><mxPoint x="390" y="160" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m2" value="2: Request Data Dashboard" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;rounded=0;strokeColor=#000000;fontSize=11;fontColor=#000000;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="390" y="200" as="sourcePoint" /><mxPoint x="640" y="200" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m3" value="3: Query Statistik Laporan &amp; User" style="html=1;verticalAlign=bottom;endArrow=block;endFill=1;rounded=0;strokeColor=#000000;fontSize=11;fontColor=#000000;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="640" y="240" as="sourcePoint" /><mxPoint x="880" y="240" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m4" value="4: Return Statistik &amp; Ringkasan" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endFill=0;rounded=0;strokeColor=#000000;fontSize=11;fontColor=#000000;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="880" y="280" as="sourcePoint" /><mxPoint x="640" y="280" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m5" value="5: Kirim Data Dashboard" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endFill=0;rounded=0;strokeColor=#000000;fontSize=11;fontColor=#000000;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="640" y="320" as="sourcePoint" /><mxPoint x="390" y="320" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m6" value="6: Tampilkan Dashboard Admin + Statistik" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endFill=0;rounded=0;strokeColor=#000000;fontSize=11;fontColor=#000000;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="390" y="360" as="sourcePoint" /><mxPoint x="160" y="360" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="note" value="&lt;i&gt;Sumber: Dokumentasi internal, disusun oleh penulis (2026)&lt;/i&gt;" style="text;html=1;fontSize=9;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#999999;" vertex="1" parent="1"><mxGeometry x="350" y="490" width="300" height="20" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.LaporanOps" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/text_on_primary</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="android:colorBackground">@color/background_primary</item>
+        <item name="android:statusBarColor">@color/primary_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowBackground">@color/background_primary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="Theme.LaporanOps.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <!-- Premium Card Style -->
+    <style name="CardStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">2dp</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="contentPaddingLeft">20dp</item>
+        <item name="contentPaddingTop">16dp</item>
+        <item name="contentPaddingRight">20dp</item>
+        <item name="contentPaddingBottom">16dp</item>
+        <item name="strokeColor">@color/card_stroke</item>
+        <item name="strokeWidth">0.5dp</item>
+    </style>
+
+    <!-- Stat Card -->
+    <style name="StatCard" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">0dp</item>
+        <item name="cardCornerRadius">14dp</item>
+    </style>
+
+    <!-- OutlineBox Enhanced -->
+    <style name="InputField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="boxBackgroundColor">@color/input_background</item>
+    </style>
+
+    <!-- Rounded Button -->
+    <style name="RoundedButton" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">14dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <!-- Outlined Rounded Button -->
+    <style name="RoundedButtonOutlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="cornerRadius">14dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <!-- Section Title Text -->
+    <style name="SectionTitle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <!-- Dashboard Greeting Text -->
+    <style name="GreetingTitle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <!-- Status Chip -->
+    <style name="StatusChip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipCornerRadius">20dp</item>
+        <item name="chipMinHeight">32dp</item>
+        <item name="android:textSize">11sp</item>
+        <item name="textStartPadding">12dp</item>
+        <item name="textEndPadding">12dp</item>
+    </style>
+
+    <!-- FAB Shape -->
+    <style name="ShapeAppearanceOverlay.FAB" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+</resources>
