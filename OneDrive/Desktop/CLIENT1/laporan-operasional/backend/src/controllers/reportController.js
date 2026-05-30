@@ -51,10 +51,12 @@ const getAllReports = async (req, res) => {
     const [reports] = await db.query(
       `SELECT r.*, u.name AS teknisi_name, u.username AS teknisi_username,
              v.name AS validator_name,
+             t.nama AS tower_nama, t.alamat AS tower_alamat,
              (SELECT COUNT(*) FROM report_photos WHERE report_id = r.id) AS photo_count
       FROM reports r
       JOIN users u ON r.teknisi_id = u.id
-      LEFT JOIN users v ON r.validated_by = v.id
+      LEFT JOIN users  v ON r.validated_by = v.id
+      LEFT JOIN towers t ON r.tower_id     = t.id
       ${where}
       ORDER BY r.created_at DESC
       LIMIT ${limit} OFFSET ${offset}`,
@@ -89,11 +91,13 @@ const getReportById = async (req, res) => {
     const [rows] = await db.execute(`
       SELECT r.*, u.name AS teknisi_name, u.username AS teknisi_username,
              v.name AS validator_name,
-             h.name AS helpdesk_name
+             h.name AS helpdesk_name,
+             t.nama AS tower_nama, t.alamat AS tower_alamat
       FROM reports r
       JOIN users u ON r.teknisi_id = u.id
-      LEFT JOIN users v ON r.validated_by = v.id
-      LEFT JOIN users h ON r.tindak_lanjut_by = h.id
+      LEFT JOIN users  v ON r.validated_by     = v.id
+      LEFT JOIN users  h ON r.tindak_lanjut_by = h.id
+      LEFT JOIN towers t ON r.tower_id         = t.id
       WHERE r.id = ?
     `, [req.params.id]);
 
@@ -124,23 +128,45 @@ const createReport = async (req, res) => {
   try {
     await conn.beginTransaction();
 
-    const { jenis_pekerjaan, lokasi, waktu_kerja, deskripsi, teknisi_id } = req.body;
+    const { jenis_pekerjaan, tower_id, lokasi, waktu_kerja, deskripsi, teknisi_id } = req.body;
 
-    if (!jenis_pekerjaan || !lokasi || !waktu_kerja || !deskripsi) {
+    if (!jenis_pekerjaan || !waktu_kerja || !deskripsi) {
       return res.status(400).json({
         success: false,
-        message: 'Semua field wajib diisi: jenis pekerjaan, lokasi, waktu, deskripsi.',
+        message: 'Field wajib diisi: jenis pekerjaan, waktu, deskripsi.',
       });
     }
+    if (!tower_id) {
+      return res.status(400).json({
+        success: false,
+        message: 'Lokasi tower wajib dipilih.',
+      });
+    }
+
+    // Validasi tower aktif & ambil nama-nya untuk disimpan ke kolom lokasi (snapshot)
+    const [towerRows] = await conn.execute(
+      'SELECT id, nama, is_active FROM towers WHERE id = ?',
+      [tower_id]
+    );
+    if (!towerRows.length) {
+      await conn.rollback();
+      return res.status(400).json({ success: false, message: 'Tower tidak ditemukan.' });
+    }
+    if (towerRows[0].is_active !== 1) {
+      await conn.rollback();
+      return res.status(400).json({ success: false, message: 'Tower tidak aktif.' });
+    }
+    // Snapshot nama tower; kalau client juga kirim "lokasi" abaikan demi konsistensi
+    const lokasiSnapshot = towerRows[0].nama;
 
     // Admin bisa menentukan teknisi_id, atau default ke diri sendiri
     const assignedTeknisiId = (req.user.role === 'admin' && teknisi_id) ? teknisi_id : req.user.id;
 
     const code = generateCode();
     const [result] = await conn.execute(`
-      INSERT INTO reports (report_code, teknisi_id, jenis_pekerjaan, lokasi, waktu_kerja, deskripsi)
-      VALUES (?, ?, ?, ?, ?, ?)
-    `, [code, assignedTeknisiId, jenis_pekerjaan, lokasi, waktu_kerja, deskripsi]);
+      INSERT INTO reports (report_code, teknisi_id, jenis_pekerjaan, lokasi, tower_id, waktu_kerja, deskripsi)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `, [code, assignedTeknisiId, jenis_pekerjaan, lokasiSnapshot, tower_id, waktu_kerja, deskripsi]);
 
     if (req.files && req.files.length > 0) {
       for (const file of req.files) {
