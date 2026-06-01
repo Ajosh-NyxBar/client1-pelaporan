@@ -90,12 +90,15 @@ LEFT JOIN users  v ON r.validated_by      = v.id
 LEFT JOIN users  h ON r.tindak_lanjut_by  = h.id
 LEFT JOIN towers t ON r.tower_id          = t.id;
 
--- 7. Seed 5 tower default (sample data Telkom). INSERT IGNORE: aman jika sudah ada.
-INSERT IGNORE INTO towers (nama, alamat) VALUES
-  ('Tower Telkom Makassar Pusat', 'Jl. A.P. Pettarani, Makassar'),
-  ('Tower Telkom Panakkukang',    'Jl. Boulevard, Panakkukang, Makassar'),
-  ('Tower Telkom Tamalanrea',     'Jl. Perintis Kemerdekaan, Tamalanrea'),
-  ('Tower Telkom Antang',         'Jl. Antang Raya, Manggala, Makassar'),
-  ('Tower Telkom Daya',           'Jl. Kapasa Raya, Biringkanaya, Makassar');
+-- 7. Seed tower default. INSERT IGNORE: aman jika sudah ada.
+INSERT IGNORE INTO towers (nama) VALUES
+  ('Tower BTS Reremi'),
+  ('Tower BTS Sanggeng'),
+  ('Tower BTS Padarni'),
+  ('Tower BTS Amban'),
+  ('Tower BTS Wosi'),
+  ('Tower BTS Susweni'),
+  ('Tower BTS Ayambori'),
+  ('Tower BTS Sowi');
 
 SELECT 'Migration towers selesai ✅' AS status;

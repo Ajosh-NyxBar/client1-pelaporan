@@ -10,11 +10,14 @@ const users = [
 ];
 
 const towers = [
-  { nama: 'Tower Telkom Makassar Pusat', alamat: 'Jl. A.P. Pettarani, Makassar' },
-  { nama: 'Tower Telkom Panakkukang',    alamat: 'Jl. Boulevard, Panakkukang, Makassar' },
-  { nama: 'Tower Telkom Tamalanrea',     alamat: 'Jl. Perintis Kemerdekaan, Tamalanrea' },
-  { nama: 'Tower Telkom Antang',         alamat: 'Jl. Antang Raya, Manggala, Makassar' },
-  { nama: 'Tower Telkom Daya',           alamat: 'Jl. Kapasa Raya, Biringkanaya, Makassar' },
+  { nama: 'Tower BTS Reremi',    alamat: null },
+  { nama: 'Tower BTS Sanggeng',  alamat: null },
+  { nama: 'Tower BTS Padarni',   alamat: null },
+  { nama: 'Tower BTS Amban',     alamat: null },
+  { nama: 'Tower BTS Wosi',      alamat: null },
+  { nama: 'Tower BTS Susweni',   alamat: null },
+  { nama: 'Tower BTS Ayambori',  alamat: null },
+  { nama: 'Tower BTS Sowi',      alamat: null },
 ];
 
 async function seed() {
