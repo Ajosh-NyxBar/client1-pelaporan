@@ -36,7 +36,7 @@ interface ApiService {
     @POST("reports")
     suspend fun createReport(
         @Part("jenis_pekerjaan") jenisPekerjaan: RequestBody,
-        @Part("lokasi")          lokasi:          RequestBody,
+        @Part("tower_id")        towerId:         RequestBody,
         @Part("waktu_kerja")     waktuKerja:      RequestBody,
         @Part("deskripsi")       deskripsi:       RequestBody,
         @Part photos: List<MultipartBody.Part>?
@@ -69,4 +69,22 @@ interface ApiService {
 
     @DELETE("users/{id}")
     suspend fun deleteUser(@Path("id") id: Int): Response<GenericResponse>
+
+    // ── Towers (Kategori Lokasi) ─────────────────────────────
+    @GET("towers")
+    suspend fun getAllTowers(
+        @Query("all") all: String? = null  // admin pakai "1" untuk lihat tower nonaktif juga
+    ): Response<TowersResponse>
+
+    @POST("towers")
+    suspend fun createTower(@Body request: CreateTowerRequest): Response<TowerResponse>
+
+    @PUT("towers/{id}")
+    suspend fun updateTower(
+        @Path("id") id: Int,
+        @Body request: UpdateTowerRequest
+    ): Response<TowerResponse>
+
+    @DELETE("towers/{id}")
+    suspend fun deleteTower(@Path("id") id: Int): Response<GenericResponse>
 }

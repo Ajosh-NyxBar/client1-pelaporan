@@ -1,0 +1,91 @@
+<mxfile host="app.diagrams.net" modified="2026-05-08T12:00:00.000Z" agent="Cascade" version="24.0.0" type="device">
+  <diagram id="class-diagram-laporan-ops" name="Class Diagram">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="users" style="swimlane;fontStyle=1;align=center;startSize=26;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="120" width="240" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="+ id : INT (PK)&#xa;+ username : VARCHAR(50)&#xa;+ password : VARCHAR(255)&#xa;+ name : VARCHAR(100)&#xa;+ role : ENUM&#xa;+ is_active : TINYINT&#xa;+ created_at : TIMESTAMP&#xa;+ updated_at : TIMESTAMP" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0;html=1;" vertex="1" parent="2">
+          <mxGeometry y="26" width="240" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=10;rotatable=0;labelPosition=left;points=[];portConstraint=eastwest;" vertex="1" parent="2">
+          <mxGeometry y="176" width="240" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="+ login()&#xa;+ getProfile()&#xa;+ changePassword()&#xa;+ tambah()&#xa;+ edit()&#xa;+ hapus()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0;html=1;" vertex="1" parent="2">
+          <mxGeometry y="184" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="reports" style="swimlane;fontStyle=1;align=center;startSize=26;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="60" width="280" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="+ id : INT (PK)&#xa;+ report_code : VARCHAR(20)&#xa;+ teknisi_id : INT (FK)&#xa;+ jenis_pekerjaan : VARCHAR(100)&#xa;+ lokasi : VARCHAR(255)&#xa;+ waktu_kerja : DATETIME&#xa;+ deskripsi : TEXT&#xa;+ status : ENUM&#xa;+ validated_by : INT (FK)&#xa;+ validated_at : TIMESTAMP&#xa;+ catatan_validasi : TEXT&#xa;+ tindak_lanjut : TEXT&#xa;+ tindak_lanjut_by : INT (FK)&#xa;+ tindak_lanjut_at : TIMESTAMP&#xa;+ created_at : TIMESTAMP&#xa;+ updated_at : TIMESTAMP" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0;html=1;" vertex="1" parent="6">
+          <mxGeometry y="26" width="280" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=10;rotatable=0;labelPosition=left;points=[];portConstraint=eastwest;" vertex="1" parent="6">
+          <mxGeometry y="296" width="280" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="+ tambah()&#xa;+ lihat()&#xa;+ lihatDetail()&#xa;+ validasi()&#xa;+ tindakLanjut()&#xa;+ getDashboardStats()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0;html=1;" vertex="1" parent="6">
+          <mxGeometry y="304" width="280" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="report_photos" style="swimlane;fontStyle=1;align=center;startSize=26;html=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="160" width="230" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="+ id : INT (PK)&#xa;+ report_id : INT (FK)&#xa;+ photo_path : VARCHAR(500)&#xa;+ created_at : TIMESTAMP" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0;html=1;" vertex="1" parent="10">
+          <mxGeometry y="26" width="230" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=10;rotatable=0;labelPosition=left;points=[];portConstraint=eastwest;" vertex="1" parent="10">
+          <mxGeometry y="116" width="230" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="+ tambah()&#xa;+ hapus()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0;html=1;" vertex="1" parent="10">
+          <mxGeometry y="124" width="230" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="305" y="225" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="415" y="225" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="" style="endArrow=none;html=1;" edge="1" parent="1" source="3" target="7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="702" y="225" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="815" y="225" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="" style="endArrow=none;html=1;" edge="1" parent="1" source="7" target="11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="teknisi_id" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="330" y="200" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="report_id" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="730" y="200" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="" style="endArrow=none;html=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="320" as="sourcePoint" />
+            <mxPoint x="420" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="23" value="validated_by" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="325" y="295" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="" style="endArrow=none;html=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="370" as="sourcePoint" />
+            <mxPoint x="420" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="25" value="tindak_lanjut_by" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="315" y="345" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="26" value="Gambar 3.x Class Diagram - Sistem Pelaporan Operasional" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="530" width="380" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -7,12 +7,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
+import android.widget.ArrayAdapter
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
 import com.laporan.ops.api.RetrofitClient
 import com.laporan.ops.databinding.ActivityTambahLaporanBinding
+import com.laporan.ops.model.Tower
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
@@ -27,6 +29,9 @@ class TambahLaporanActivity : AppCompatActivity() {
     private lateinit var b: ActivityTambahLaporanBinding
     private val selectedPhotos = mutableListOf<Uri>()
     private val selectedTime   = Calendar.getInstance()
+
+    private val towers       = mutableListOf<Tower>()
+    private var selectedTower: Tower? = null
 
     private val pickImages = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
@@ -54,6 +59,49 @@ class TambahLaporanActivity : AppCompatActivity() {
         b.btnPilihFoto.setOnClickListener  { openGallery() }
         b.btnClearFoto.setOnClickListener  { selectedPhotos.clear(); updatePhotoUI() }
         b.btnKirim.setOnClickListener      { submit() }
+
+        // Klik dropdown lokasi tower
+        b.actLokasi.setOnClickListener {
+            if (towers.isEmpty()) loadTowers(showAfter = true) else b.actLokasi.showDropDown()
+        }
+        b.actLokasi.setOnItemClickListener { _, _, position, _ ->
+            selectedTower = towers[position]
+            b.tilLokasi.error = null
+        }
+
+        loadTowers()
+    }
+
+    private fun loadTowers(showAfter: Boolean = false) {
+        lifecycleScope.launch {
+            try {
+                val resp = RetrofitClient.instance.getAllTowers()
+                if (resp.isSuccessful && resp.body()?.success == true) {
+                    val list = resp.body()!!.data ?: emptyList()
+                    towers.clear()
+                    towers.addAll(list)
+
+                    val names = towers.map { it.nama }
+                    val adapter = ArrayAdapter(
+                        this@TambahLaporanActivity,
+                        android.R.layout.simple_list_item_1,
+                        names
+                    )
+                    b.actLokasi.setAdapter(adapter)
+
+                    if (towers.isEmpty()) {
+                        b.tilLokasi.helperText = "Belum ada tower. Hubungi admin untuk menambah tower."
+                    } else {
+                        b.tilLokasi.helperText = null
+                        if (showAfter) b.actLokasi.showDropDown()
+                    }
+                } else {
+                    snack(resp.body()?.success?.let { "Gagal memuat daftar tower." } ?: "Gagal memuat tower.")
+                }
+            } catch (e: Exception) {
+                snack("Gagal memuat tower: ${e.message}")
+            }
+        }
     }
 
     private fun pickDateTime() {
@@ -85,12 +133,12 @@ class TambahLaporanActivity : AppCompatActivity() {
 
     private fun submit() {
         val jenis  = b.etJenis.text?.toString()?.trim().orEmpty()
-        val lokasi = b.etLokasi.text?.toString()?.trim().orEmpty()
         val desc   = b.etDeskripsi.text?.toString()?.trim().orEmpty()
+        val tower  = selectedTower
 
         var ok = true
         if (jenis.isEmpty())  { b.tilJenis.error  = "Wajib diisi"; ok = false } else b.tilJenis.error  = null
-        if (lokasi.isEmpty()) { b.tilLokasi.error = "Wajib diisi"; ok = false } else b.tilLokasi.error = null
+        if (tower == null)    { b.tilLokasi.error = "Pilih lokasi tower"; ok = false } else b.tilLokasi.error = null
         if (desc.isEmpty())   { b.tilDeskripsi.error = "Wajib diisi"; ok = false } else b.tilDeskripsi.error = null
         if (!ok) return
 
@@ -111,7 +159,7 @@ class TambahLaporanActivity : AppCompatActivity() {
 
                 val resp = RetrofitClient.instance.createReport(
                     jenis.toRequestBody("text/plain".toMediaType()),
-                    lokasi.toRequestBody("text/plain".toMediaType()),
+                    tower!!.id.toString().toRequestBody("text/plain".toMediaType()),
                     waktu.toRequestBody("text/plain".toMediaType()),
                     desc.toRequestBody("text/plain".toMediaType()),
                     parts.ifEmpty { null }

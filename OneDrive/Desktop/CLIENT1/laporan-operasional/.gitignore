@@ -40,5 +40,11 @@ ehthumbs.db
 .env.test.local
 .env.production.local
 
+# Internal docs / scripts berisi kredensial production
+TODO.md
+deploy.sh
+deploy-continue.sh
+deploy-final.sh
+
 # Database
 database/schema.sql  # if not to commit

@@ -138,9 +138,22 @@
                         android:layout_width="0dp"
                         android:layout_height="44dp"
                         android:layout_weight="1"
-                        android:layout_marginEnd="8dp"
-                        android:text="👤 Kelola User"
-                        android:textSize="12sp"
+                        android:layout_marginEnd="6dp"
+                        android:text="👤 User"
+                        android:textSize="11sp"
+                        android:paddingHorizontal="4dp"
+                        app:strokeColor="@color/role_admin" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnKelolaTower"
+                        style="@style/RoundedButtonOutlined"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="3dp"
+                        android:text="🗼 Tower"
+                        android:textSize="11sp"
+                        android:paddingHorizontal="4dp"
                         app:strokeColor="@color/role_admin" />
 
                     <com.google.android.material.button.MaterialButton
@@ -149,8 +162,10 @@
                         android:layout_width="0dp"
                         android:layout_height="44dp"
                         android:layout_weight="1"
+                        android:layout_marginStart="6dp"
                         android:text="⚙️ Profil"
-                        android:textSize="12sp"
+                        android:textSize="11sp"
+                        android:paddingHorizontal="4dp"
                         app:strokeColor="@color/primary_light" />
                 </LinearLayout>
 

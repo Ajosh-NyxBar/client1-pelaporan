@@ -23,7 +23,7 @@ class LaporanAdapter(
         fun bind(r: Report) {
             b.tvReportCode.text      = r.reportCode
             b.tvJenisPekerjaan.text  = r.jenisPekerjaan
-            b.tvLokasi.text          = "📍 ${r.lokasi}"
+            b.tvLokasi.text          = "🗼 ${r.towerNama ?: r.lokasi}"
             b.tvWaktu.text           = "🕐 ${r.waktuKerja}"
             b.tvTeknisi.text         = "👷 ${r.teknisiName ?: r.teknisiUsername ?: "–"}"
             b.tvPhotoCount.text      = if (r.photoCount > 0) "📷 ${r.photoCount} foto" else "📷 Tidak ada foto"

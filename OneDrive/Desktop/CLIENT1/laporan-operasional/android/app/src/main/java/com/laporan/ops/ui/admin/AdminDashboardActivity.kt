@@ -54,6 +54,11 @@ class AdminDashboardActivity : AppCompatActivity() {
             startActivity(Intent(this, KelolaUserActivity::class.java))
         }
 
+        // Navigasi ke Kelola Tower (kategori lokasi)
+        b.btnKelolaTower.setOnClickListener {
+            startActivity(Intent(this, KelolaTowerActivity::class.java))
+        }
+
         // UC-02: Navigasi ke Profil
         b.btnProfil.setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))

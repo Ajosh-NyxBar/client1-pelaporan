@@ -40,6 +40,9 @@ data class Report(
     @SerializedName("teknisi_username") val teknisiUsername: String?,
     @SerializedName("jenis_pekerjaan")  val jenisPekerjaan: String,
     val lokasi: String,
+    @SerializedName("tower_id")         val towerId: Int?,
+    @SerializedName("tower_nama")       val towerNama: String?,
+    @SerializedName("tower_alamat")     val towerAlamat: String?,
     @SerializedName("waktu_kerja")      val waktuKerja: String,
     val deskripsi: String,
     val status: String,
@@ -124,4 +127,36 @@ data class UpdateUserResponse(
     val success: Boolean,
     val message: String,
     val data: UserDetail?
+)
+
+// ── Towers (Kategori Lokasi) ─────────────────────────────────
+
+data class Tower(
+    val id: Int,
+    val nama: String,
+    val alamat: String?,
+    @SerializedName("is_active")  val isActive: Int = 1,
+    @SerializedName("created_at") val createdAt: String? = null,
+    @SerializedName("updated_at") val updatedAt: String? = null
+) {
+    override fun toString(): String = nama  // dipakai langsung di Spinner
+}
+
+data class TowersResponse(val success: Boolean, val data: List<Tower>?)
+
+data class CreateTowerRequest(
+    val nama: String,
+    val alamat: String? = null
+)
+
+data class UpdateTowerRequest(
+    val nama: String? = null,
+    val alamat: String? = null,
+    @SerializedName("is_active") val isActive: Boolean? = null
+)
+
+data class TowerResponse(
+    val success: Boolean,
+    val message: String,
+    val data: Tower?
 )

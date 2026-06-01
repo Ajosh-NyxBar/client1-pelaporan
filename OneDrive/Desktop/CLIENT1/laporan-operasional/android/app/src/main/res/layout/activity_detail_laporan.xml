@@ -103,7 +103,7 @@
                         android:layout_marginBottom="14dp" android:layout_marginTop="2dp" android:text="–" />
 
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="Lokasi" android:textSize="11sp" android:textColor="@color/text_secondary"
+                        android:text="Lokasi Tower" android:textSize="11sp" android:textColor="@color/text_secondary"
                         android:textAllCaps="true" android:letterSpacing="0.06" />
                     <TextView android:id="@+id/tvLokasi"
                         android:layout_width="match_parent" android:layout_height="wrap_content"

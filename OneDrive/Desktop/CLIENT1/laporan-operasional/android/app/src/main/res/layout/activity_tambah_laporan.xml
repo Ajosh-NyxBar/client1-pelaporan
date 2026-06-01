@@ -87,20 +87,27 @@
                             android:imeOptions="actionNext" />
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <!-- Lokasi -->
+                    <!-- Lokasi Tower (Dropdown) -->
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilLokasi"
-                        style="@style/InputField"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Lokasi"
+                        android:hint="Lokasi Tower"
+                        app:boxCornerRadiusTopStart="12dp"
+                        app:boxCornerRadiusTopEnd="12dp"
+                        app:boxCornerRadiusBottomStart="12dp"
+                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxBackgroundColor="@color/input_background"
                         android:layout_marginBottom="14dp">
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/etLokasi"
+                        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                            android:id="@+id/actLokasi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="textCapWords"
-                            android:imeOptions="actionNext" />
+                            android:inputType="none"
+                            android:focusable="false"
+                            android:cursorVisible="false"
+                            android:hint="Pilih tower..." />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <!-- Deskripsi -->

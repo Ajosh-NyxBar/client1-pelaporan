@@ -26,12 +26,9 @@ class DetailLaporanActivity : AppCompatActivity() {
     private lateinit var session: SessionManager
     private var reportId = -1
 
-    // Base URL untuk foto (tanpa /api/)
+    // Base URL untuk foto (tanpa /api/) — diambil dari RetrofitClient
     private val photoBaseUrl: String
-        get() {
-            val apiUrl = "http://10.0.2.2:3000/api/"
-            return apiUrl.replace("/api/", "")
-        }
+        get() = com.laporan.ops.api.RetrofitClient.PHOTO_BASE_URL
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +54,13 @@ class DetailLaporanActivity : AppCompatActivity() {
 
                     b.tvCode.text       = r.reportCode
                     b.tvJenis.text      = r.jenisPekerjaan
-                    b.tvLokasi.text     = r.lokasi
+                    b.tvLokasi.text     = buildString {
+                        append(r.towerNama ?: r.lokasi)
+                        if (!r.towerAlamat.isNullOrBlank()) {
+                            append("\n")
+                            append(r.towerAlamat)
+                        }
+                    }
                     b.tvWaktu.text      = r.waktuKerja
                     b.tvTeknisi.text    = "${r.teknisiName} (${r.teknisiUsername})"
                     b.tvDeskripsi.text  = r.deskripsi
