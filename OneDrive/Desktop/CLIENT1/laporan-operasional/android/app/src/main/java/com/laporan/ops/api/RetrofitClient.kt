@@ -10,10 +10,15 @@ object RetrofitClient {
 
     /**
      * KONFIGURASI BASE URL
-     * - Emulator AVD  : gunakan 10.0.2.2
-     * - Perangkat fisik: ganti dengan IP LAN mesin Anda, mis. 192.168.1.5
+     * - Production server (deployed): http://103.247.10.60/api/
+     * - Local development:
+     *   - Emulator AVD  : http://10.0.2.2:3000/api/
+     *   - Perangkat fisik: http://<IP-LAN>:3000/api/  (mis. http://192.168.1.5:3000/api/)
      */
-    private const val BASE_URL = "http://192.168.1.13:3000/api/"
+    const val BASE_URL = "http://103.247.10.60/api/"
+
+    /** Base URL untuk static files (foto upload) — tanpa /api/ */
+    val PHOTO_BASE_URL: String get() = BASE_URL.removeSuffix("api/")
 
     private var authToken: String? = null
 
