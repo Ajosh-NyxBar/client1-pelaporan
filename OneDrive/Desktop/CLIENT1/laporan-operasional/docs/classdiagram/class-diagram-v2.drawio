@@ -7,16 +7,16 @@
 
         <!-- ============ CLASS: users (Data Pegawai) ============ -->
         <mxCell id="u" value="users  (Data Pegawai)" style="swimlane;fontStyle=1;align=center;startSize=26;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="40" y="80" width="250" height="310" as="geometry" />
+          <mxGeometry x="40" y="80" width="250" height="370" as="geometry" />
         </mxCell>
-        <mxCell id="u_a" value="+ id : INT (PK)&#xa;+ username : VARCHAR(50)&#xa;+ password : VARCHAR(255)&#xa;+ name : VARCHAR(100)&#xa;+ role : ENUM(teknisi, admin, helpdesk)&#xa;+ is_active : TINYINT&#xa;+ created_at : TIMESTAMP&#xa;+ updated_at : TIMESTAMP" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0;html=1;" vertex="1" parent="u">
-          <mxGeometry y="26" width="250" height="150" as="geometry" />
+        <mxCell id="u_a" value="+ id : INT (PK)&#xa;+ username : VARCHAR(50)&#xa;+ password : VARCHAR(255)&#xa;+ name : VARCHAR(100)&#xa;+ role : ENUM(teknisi, admin, helpdesk)&#xa;+ jabatan : VARCHAR(100)&#xa;+ no_hp : VARCHAR(20)&#xa;+ alamat : VARCHAR(255)&#xa;+ email : VARCHAR(120)&#xa;+ is_active : TINYINT&#xa;+ created_at : TIMESTAMP&#xa;+ updated_at : TIMESTAMP" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0;html=1;" vertex="1" parent="u">
+          <mxGeometry y="26" width="250" height="210" as="geometry" />
         </mxCell>
         <mxCell id="u_d" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=10;rotatable=0;labelPosition=left;points=[];portConstraint=eastwest;" vertex="1" parent="u">
-          <mxGeometry y="176" width="250" height="8" as="geometry" />
+          <mxGeometry y="236" width="250" height="8" as="geometry" />
         </mxCell>
         <mxCell id="u_m" value="+ login()&#xa;+ getProfile()&#xa;+ changePassword()&#xa;+ tambah()&#xa;+ edit()&#xa;+ hapus()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0;html=1;" vertex="1" parent="u">
-          <mxGeometry y="184" width="250" height="120" as="geometry" />
+          <mxGeometry y="244" width="250" height="120" as="geometry" />
         </mxCell>
 
         <!-- ============ CLASS: reports ============ -->
