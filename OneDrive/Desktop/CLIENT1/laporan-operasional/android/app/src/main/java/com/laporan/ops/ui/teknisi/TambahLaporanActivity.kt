@@ -60,10 +60,7 @@ class TambahLaporanActivity : AppCompatActivity() {
         b.btnClearFoto.setOnClickListener  { selectedPhotos.clear(); updatePhotoUI() }
         b.btnKirim.setOnClickListener      { submit() }
 
-        // Klik dropdown lokasi tower
-        b.actLokasi.setOnClickListener {
-            if (towers.isEmpty()) loadTowers(showAfter = true) else b.actLokasi.showDropDown()
-        }
+        // Dropdown lokasi tower (ExposedDropdownMenu auto-show on click)
         b.actLokasi.setOnItemClickListener { _, _, position, _ ->
             selectedTower = towers[position]
             b.tilLokasi.error = null
@@ -72,7 +69,7 @@ class TambahLaporanActivity : AppCompatActivity() {
         loadTowers()
     }
 
-    private fun loadTowers(showAfter: Boolean = false) {
+    private fun loadTowers() {
         lifecycleScope.launch {
             try {
                 val resp = RetrofitClient.instance.getAllTowers()
@@ -93,10 +90,9 @@ class TambahLaporanActivity : AppCompatActivity() {
                         b.tilLokasi.helperText = "Belum ada tower. Hubungi admin untuk menambah tower."
                     } else {
                         b.tilLokasi.helperText = null
-                        if (showAfter) b.actLokasi.showDropDown()
                     }
                 } else {
-                    snack(resp.body()?.success?.let { "Gagal memuat daftar tower." } ?: "Gagal memuat tower.")
+                    snack("Gagal memuat daftar tower.")
                 }
             } catch (e: Exception) {
                 snack("Gagal memuat tower: ${e.message}")
@@ -167,7 +163,7 @@ class TambahLaporanActivity : AppCompatActivity() {
 
                 if (resp.isSuccessful && resp.body()?.success == true) {
                     val code = resp.body()!!.data?.reportCode ?: ""
-                    snack("✅ Laporan $code berhasil dikirim!")
+                    snack("Laporan $code berhasil dikirim!")
                     finish()
                 } else {
                     snack(resp.body()?.message ?: "Gagal mengirim laporan.")

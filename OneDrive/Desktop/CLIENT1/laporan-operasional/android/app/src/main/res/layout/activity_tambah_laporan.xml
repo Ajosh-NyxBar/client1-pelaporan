@@ -87,7 +87,7 @@
                             android:imeOptions="actionNext" />
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <!-- Lokasi Tower (Dropdown) -->
+                    <!-- Lokasi Tower (Dropdown / ExposedDropdownMenu) -->
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilLokasi"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
@@ -100,14 +100,12 @@
                         app:boxCornerRadiusBottomEnd="12dp"
                         app:boxBackgroundColor="@color/input_background"
                         android:layout_marginBottom="14dp">
+
                         <com.google.android.material.textfield.MaterialAutoCompleteTextView
                             android:id="@+id/actLokasi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="none"
-                            android:focusable="false"
-                            android:cursorVisible="false"
-                            android:hint="Pilih tower..." />
+                            android:inputType="none" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <!-- Deskripsi -->
@@ -138,14 +136,20 @@
                         android:textSize="14sp"
                         android:textColor="@color/text_primary"
                         android:layout_marginBottom="10dp"
-                        android:text="📅 Pilih tanggal dan waktu..." />
+                        android:drawableStart="@drawable/ic_calendar"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/primary"
+                        android:gravity="center_vertical"
+                        android:text="Pilih tanggal dan waktu..." />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnPilihWaktu"
                         style="@style/RoundedButtonOutlined"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="📅 Pilih Tanggal &amp; Waktu"
+                        android:text="Pilih Tanggal &amp; Waktu"
+                        app:icon="@drawable/ic_calendar"
+                        app:iconGravity="textStart"
                         app:strokeColor="@color/primary_light" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -201,7 +205,9 @@
                         style="@style/RoundedButtonOutlined"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="📷 Pilih Foto (maks. 5)"
+                        android:text="Pilih Foto (maks. 5)"
+                        app:icon="@drawable/ic_camera"
+                        app:iconGravity="textStart"
                         app:strokeColor="@color/primary_light"
                         android:layout_marginBottom="8dp" />
 
@@ -210,8 +216,11 @@
                         style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="🗑️ Hapus Semua Foto"
+                        android:text="Hapus Semua Foto"
+                        app:icon="@drawable/ic_delete"
+                        app:iconGravity="textStart"
                         android:textColor="@color/status_rejected"
+                        app:iconTint="@color/status_rejected"
                         android:visibility="gone" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
