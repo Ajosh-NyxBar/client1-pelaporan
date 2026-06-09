@@ -10,9 +10,9 @@
     <string name="btn_processing">Memproses…</string>
 
     <!-- Report Status -->
-    <string name="status_menunggu">⏳ Menunggu Validasi</string>
-    <string name="status_disetujui">✅ Disetujui</string>
-    <string name="status_ditolak">❌ Ditolak</string>
+    <string name="status_menunggu">Menunggu Validasi</string>
+    <string name="status_disetujui">Disetujui</string>
+    <string name="status_ditolak">Ditolak</string>
 
     <!-- Dashboard -->
     <string name="label_total">Total</string>
@@ -25,12 +25,12 @@
     <string name="hint_jenis">Jenis Pekerjaan (mis. Perbaikan Jaringan)</string>
     <string name="hint_lokasi">Lokasi (Gedung / Area)</string>
     <string name="hint_deskripsi">Deskripsi pekerjaan yang dilakukan…</string>
-    <string name="btn_pilih_waktu">📅 Pilih Tanggal &amp; Waktu</string>
-    <string name="btn_pilih_foto">📷 Pilih Foto (maks. 5)</string>
+    <string name="btn_pilih_waktu">Pilih Tanggal &amp; Waktu</string>
+    <string name="btn_pilih_foto">Pilih Foto (maks. 5)</string>
     <string name="btn_kirim">KIRIM LAPORAN</string>
 
     <!-- Validasi -->
-    <string name="btn_approve">✅ Setujui</string>
-    <string name="btn_reject">❌ Tolak</string>
+    <string name="btn_approve">Setujui</string>
+    <string name="btn_reject">Tolak</string>
     <string name="label_catatan_validasi">Catatan Validasi</string>
 </resources>

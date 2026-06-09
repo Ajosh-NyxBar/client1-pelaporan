@@ -23,15 +23,15 @@ class LaporanAdapter(
         fun bind(r: Report) {
             b.tvReportCode.text      = r.reportCode
             b.tvJenisPekerjaan.text  = r.jenisPekerjaan
-            b.tvLokasi.text          = "🗼 ${r.towerNama ?: r.lokasi}"
-            b.tvWaktu.text           = "🕐 ${r.waktuKerja}"
-            b.tvTeknisi.text         = "👷 ${r.teknisiName ?: r.teknisiUsername ?: "–"}"
-            b.tvPhotoCount.text      = if (r.photoCount > 0) "📷 ${r.photoCount} foto" else "📷 Tidak ada foto"
+            b.tvLokasi.text          = r.towerNama ?: r.lokasi
+            b.tvWaktu.text           = r.waktuKerja
+            b.tvTeknisi.text         = r.teknisiName ?: r.teknisiUsername ?: "–"
+            b.tvPhotoCount.text      = if (r.photoCount > 0) "${r.photoCount} foto" else "Tidak ada foto"
 
             val (statusLabel, chipBg) = when (r.status) {
-                "menunggu"  -> Pair("⏳ MENUNGGU",  android.R.color.holo_orange_light)
-                "disetujui" -> Pair("✅ DISETUJUI", android.R.color.holo_green_light)
-                "ditolak"   -> Pair("❌ DITOLAK",   android.R.color.holo_red_light)
+                "menunggu"  -> Pair("MENUNGGU",  android.R.color.holo_orange_light)
+                "disetujui" -> Pair("DISETUJUI", android.R.color.holo_green_light)
+                "ditolak"   -> Pair("DITOLAK",   android.R.color.holo_red_light)
                 else        -> Pair(r.status.uppercase(), android.R.color.darker_gray)
             }
             b.chipStatus.text = statusLabel

@@ -56,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
                 if (response.isSuccessful && response.body()?.success == true) {
                     val data = response.body()!!.data!!
                     session.saveSession(data.token, data.user)
-                    snack("Selamat datang, ${data.user.name}! 👋")
+                    snack("Selamat datang, ${data.user.name}!")
                     navigateToDashboard(data.user.role)
                 } else {
                     snack(response.body()?.message ?: "Username atau password salah.")

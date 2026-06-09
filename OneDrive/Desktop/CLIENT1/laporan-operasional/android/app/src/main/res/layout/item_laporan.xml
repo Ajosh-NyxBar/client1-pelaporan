@@ -71,8 +71,11 @@
             android:textSize="12sp"
             android:textColor="@color/text_secondary"
             android:layout_marginBottom="10dp"
-            android:drawablePadding="4dp"
-            android:text="👷 Teknisi" />
+            android:drawableStart="@drawable/ic_user"
+            android:drawablePadding="6dp"
+            android:drawableTint="@color/text_secondary"
+            android:gravity="center_vertical"
+            android:text="Teknisi" />
 
         <!-- Divider -->
         <View
@@ -95,7 +98,11 @@
                 android:layout_weight="1"
                 android:textSize="12sp"
                 android:textColor="@color/text_secondary"
-                android:text="📍 Lokasi"
+                android:drawableStart="@drawable/ic_cell_tower"
+                android:drawablePadding="6dp"
+                android:drawableTint="@color/text_secondary"
+                android:gravity="center_vertical"
+                android:text="Lokasi"
                 android:maxLines="1"
                 android:ellipsize="end" />
 
@@ -105,7 +112,11 @@
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
                 android:textColor="@color/text_secondary"
-                android:text="🕐 Waktu" />
+                android:drawableStart="@drawable/ic_pending"
+                android:drawablePadding="6dp"
+                android:drawableTint="@color/text_secondary"
+                android:gravity="center_vertical"
+                android:text="Waktu" />
         </LinearLayout>
 
         <!-- Row 5: Foto count -->
@@ -116,7 +127,11 @@
             android:textSize="11sp"
             android:textColor="@color/primary_light"
             android:textStyle="bold"
-            android:text="📷 Tidak ada foto" />
+            android:drawableStart="@drawable/ic_camera"
+            android:drawablePadding="6dp"
+            android:drawableTint="@color/primary_light"
+            android:gravity="center_vertical"
+            android:text="Tidak ada foto" />
 
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

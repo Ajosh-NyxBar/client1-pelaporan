@@ -125,10 +125,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="📊 Menampilkan laporan yang sudah DISETUJUI"
+                        android:text="Menampilkan laporan yang sudah DISETUJUI"
                         android:textSize="11sp"
                         android:textColor="#B3FFFFFF"
                         android:gravity="center"
+                        android:drawableStart="@drawable/ic_chart"
+                        android:drawablePadding="8dp"
+                        android:drawableTint="#B3FFFFFF"
                         android:background="@drawable/bg_stat_card_glass"
                         android:padding="8dp" />
                 </LinearLayout>
@@ -138,7 +141,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/SectionTitle"
-                    android:text="📊 Laporan Tervalidasi"
+                    android:text="Laporan Tervalidasi"
                     android:paddingHorizontal="20dp"
                     android:paddingTop="20dp"
                     android:paddingBottom="8dp" />
@@ -151,8 +154,9 @@
                     android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:orientation="vertical" android:gravity="center"
                     android:padding="48dp" android:visibility="gone">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="📭" android:textSize="40sp" android:layout_marginBottom="8dp" />
+                    <ImageView android:layout_width="48dp" android:layout_height="48dp"
+                        android:src="@drawable/ic_inbox" app:tint="@color/text_secondary"
+                        android:layout_marginBottom="8dp" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                         android:text="Belum ada laporan disetujui" android:textSize="15sp" android:textStyle="bold" android:textColor="@color/text_primary" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"

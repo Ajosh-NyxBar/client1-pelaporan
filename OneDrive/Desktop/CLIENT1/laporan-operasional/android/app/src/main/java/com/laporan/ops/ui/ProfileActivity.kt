@@ -83,7 +83,7 @@ class ProfileActivity : AppCompatActivity() {
                     ChangePasswordRequest(oldPass, newPass)
                 )
                 if (resp.isSuccessful && resp.body()?.success == true) {
-                    snack("✅ Password berhasil diubah!")
+                    snack("Password berhasil diubah!")
                     b.etOldPass.text?.clear()
                     b.etNewPass.text?.clear()
                     b.etConfirmPass.text?.clear()

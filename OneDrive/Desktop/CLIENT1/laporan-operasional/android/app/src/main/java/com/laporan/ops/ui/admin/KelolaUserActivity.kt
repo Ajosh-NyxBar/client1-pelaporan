@@ -74,7 +74,7 @@ class KelolaUserActivity : AppCompatActivity() {
         spRole.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, roles)
 
         MaterialAlertDialogBuilder(this)
-            .setTitle("👤 Tambah User Baru")
+            .setTitle("Tambah User Baru")
             .setView(dialogView)
             .setPositiveButton("Simpan") { _, _ ->
                 val name     = etName.text?.toString()?.trim().orEmpty()
@@ -103,7 +103,7 @@ class KelolaUserActivity : AppCompatActivity() {
             try {
                 val resp = RetrofitClient.instance.createUser(req)
                 if (resp.isSuccessful && resp.body()?.success == true) {
-                    snack("✅ ${resp.body()!!.message}")
+                    snack(resp.body()!!.message)
                     loadUsers()
                 } else {
                     snack(resp.body()?.message ?: "Gagal menambahkan user.")
@@ -117,9 +117,9 @@ class KelolaUserActivity : AppCompatActivity() {
     }
 
     private fun showUserOptionsDialog(user: UserDetail) {
-        val options = arrayOf("✏️ Edit Nama", "🔄 Ganti Role", "🔑 Reset Password",
-            if (user.isActive == 1) "🚫 Nonaktifkan" else "✅ Aktifkan",
-            "🗑️ Hapus")
+        val options = arrayOf("Edit Nama", "Ganti Role", "Reset Password",
+            if (user.isActive == 1) "Nonaktifkan" else "Aktifkan",
+            "Hapus")
 
         MaterialAlertDialogBuilder(this)
             .setTitle("${user.name} (@${user.username})")
@@ -194,7 +194,7 @@ class KelolaUserActivity : AppCompatActivity() {
             try {
                 val resp = RetrofitClient.instance.updateUser(id, req)
                 if (resp.isSuccessful && resp.body()?.success == true) {
-                    snack("✅ ${resp.body()!!.message}")
+                    snack(resp.body()!!.message)
                     loadUsers()
                 } else {
                     snack(resp.body()?.message ?: "Gagal memperbarui.")
@@ -208,7 +208,7 @@ class KelolaUserActivity : AppCompatActivity() {
             try {
                 val resp = RetrofitClient.instance.deleteUser(id)
                 if (resp.isSuccessful && resp.body()?.success == true) {
-                    snack("✅ ${resp.body()!!.message}")
+                    snack(resp.body()!!.message)
                     loadUsers()
                 } else {
                     snack(resp.body()?.message ?: "Gagal menghapus.")

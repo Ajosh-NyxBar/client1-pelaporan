@@ -46,7 +46,7 @@ class TeknisiDashboardActivity : AppCompatActivity() {
     override fun onResume() { super.onResume(); loadAll() }
 
     private fun setupHeader() {
-        b.tvNama.text = "Halo, ${session.getName()} 👷"
+        b.tvNama.text = "Halo, ${session.getName()}"
         b.tvRole.text = "Teknisi"
     }
 

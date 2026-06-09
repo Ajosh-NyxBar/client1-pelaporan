@@ -29,7 +29,7 @@ class AdminDashboardActivity : AppCompatActivity() {
         setContentView(b.root)
         session = SessionManager.getInstance(this)
 
-        b.tvNama.text = "Halo, ${session.getName()} 🛡️"
+        b.tvNama.text = "Halo, ${session.getName()}"
         b.tvRole.text = "Admin / Team Leader"
 
         adapter = LaporanAdapter { r ->

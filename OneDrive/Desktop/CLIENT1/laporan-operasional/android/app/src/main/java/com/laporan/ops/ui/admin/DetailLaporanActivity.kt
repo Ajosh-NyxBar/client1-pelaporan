@@ -65,7 +65,7 @@ class DetailLaporanActivity : AppCompatActivity() {
                     b.tvTeknisi.text    = "${r.teknisiName} (${r.teknisiUsername})"
                     b.tvDeskripsi.text  = r.deskripsi
                     b.tvTanggal.text    = r.createdAt
-                    b.tvFotoCount.text  = "📷 ${r.photos?.size ?: 0} foto terlampir"
+                    b.tvFotoCount.text  = "${r.photos?.size ?: 0} foto terlampir"
 
                     // ── Tampilkan foto-foto ────────────────────────
                     val photos = r.photos ?: emptyList()
@@ -82,9 +82,9 @@ class DetailLaporanActivity : AppCompatActivity() {
                     }
 
                     val (statusText, statusColor) = when (r.status) {
-                        "disetujui" -> "✅ Disetujui oleh ${r.validatorName}" to getColor(android.R.color.holo_green_dark)
-                        "ditolak"   -> "❌ Ditolak oleh ${r.validatorName}"   to getColor(android.R.color.holo_red_dark)
-                        else        -> "⏳ Menunggu Validasi"                  to getColor(android.R.color.holo_orange_dark)
+                        "disetujui" -> "Disetujui oleh ${r.validatorName}" to getColor(android.R.color.holo_green_dark)
+                        "ditolak"   -> "Ditolak oleh ${r.validatorName}"   to getColor(android.R.color.holo_red_dark)
+                        else        -> "Menunggu Validasi"                  to getColor(android.R.color.holo_orange_dark)
                     }
                     b.tvStatus.text     = statusText
                     b.tvStatus.setTextColor(statusColor)
@@ -130,7 +130,7 @@ class DetailLaporanActivity : AppCompatActivity() {
                     if (isAdmin && isPending) {
                         b.btnApprove.setOnClickListener {
                             MaterialAlertDialogBuilder(this@DetailLaporanActivity)
-                                .setTitle("✅ Setujui Laporan")
+                                .setTitle("Setujui Laporan")
                                 .setMessage("Anda akan menyetujui laporan ini. Lanjutkan?")
                                 .setPositiveButton("Ya, Setujui") { _, _ -> doValidate("approve", null) }
                                 .setNegativeButton("Batal", null).show()
@@ -141,7 +141,7 @@ class DetailLaporanActivity : AppCompatActivity() {
                                 setPadding(48, 24, 48, 8)
                             }
                             MaterialAlertDialogBuilder(this@DetailLaporanActivity)
-                                .setTitle("❌ Tolak Laporan")
+                                .setTitle("Tolak Laporan")
                                 .setMessage("Berikan catatan penolakan:")
                                 .setView(input)
                                 .setPositiveButton("Tolak") { _, _ ->
@@ -200,7 +200,7 @@ class DetailLaporanActivity : AppCompatActivity() {
             try {
                 val resp = RetrofitClient.instance.addFollowUp(reportId, FollowUpRequest(text))
                 if (resp.isSuccessful && resp.body()?.success == true) {
-                    snack("✅ ${resp.body()!!.message}")
+                    snack(resp.body()!!.message)
                     loadDetail() // Reload to show the follow-up
                 } else {
                     snack(resp.body()?.message ?: "Gagal menyimpan tindak lanjut.")
