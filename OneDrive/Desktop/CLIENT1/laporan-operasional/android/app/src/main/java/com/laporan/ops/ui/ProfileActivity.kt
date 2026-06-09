@@ -47,6 +47,10 @@ class ProfileActivity : AppCompatActivity() {
                         b.tvName.text    = user.name
                         b.tvUsername.text = "@${user.username}"
                         b.chipRole.text  = user.role.replaceFirstChar { it.uppercase() }
+                        b.tvJabatan.text = user.jabatan?.takeIf { it.isNotBlank() } ?: "–"
+                        b.tvNoHp.text    = user.noHp?.takeIf { it.isNotBlank() } ?: "–"
+                        b.tvEmail.text   = user.email?.takeIf { it.isNotBlank() } ?: "–"
+                        b.tvAlamat.text  = user.alamat?.takeIf { it.isNotBlank() } ?: "–"
                     }
                 }
             } catch (_: Exception) {}

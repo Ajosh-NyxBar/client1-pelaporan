@@ -8,7 +8,7 @@ const { authMiddleware, roleMiddleware } = require('../middleware/auth');
 router.get('/', authMiddleware, roleMiddleware('admin'), async (req, res) => {
   try {
     const [users] = await db.execute(
-      'SELECT id, username, name, role, is_active, created_at FROM users ORDER BY role, name'
+      'SELECT id, username, name, role, jabatan, no_hp, alamat, email, is_active, created_at FROM users ORDER BY role, name'
     );
     res.json({ success: true, data: users });
   } catch (err) {
@@ -19,7 +19,7 @@ router.get('/', authMiddleware, roleMiddleware('admin'), async (req, res) => {
 // POST /api/users  — tambah user (admin only: input data teknisi)
 router.post('/', authMiddleware, roleMiddleware('admin'), async (req, res) => {
   try {
-    const { username, password, name, role } = req.body;
+    const { username, password, name, role, jabatan, no_hp, alamat, email } = req.body;
 
     if (!username || !password || !name) {
       return res.status(400).json({
@@ -43,8 +43,15 @@ router.post('/', authMiddleware, roleMiddleware('admin'), async (req, res) => {
 
     const hash = await bcrypt.hash(password, 10);
     const [result] = await db.execute(
-      'INSERT INTO users (username, password, name, role) VALUES (?, ?, ?, ?)',
-      [username, hash, name, userRole]
+      `INSERT INTO users (username, password, name, role, jabatan, no_hp, alamat, email)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        username, hash, name, userRole,
+        jabatan && jabatan.trim() ? jabatan.trim() : null,
+        no_hp   && no_hp.trim()   ? no_hp.trim()   : null,
+        alamat  && alamat.trim()  ? alamat.trim()  : null,
+        email   && email.trim()   ? email.trim()   : null,
+      ]
     );
 
     res.status(201).json({
@@ -61,7 +68,7 @@ router.post('/', authMiddleware, roleMiddleware('admin'), async (req, res) => {
 // PUT /api/users/:id  — edit data user (admin only)
 router.put('/:id', authMiddleware, roleMiddleware('admin'), async (req, res) => {
   try {
-    const { name, role, is_active, password } = req.body;
+    const { name, role, is_active, password, jabatan, no_hp, alamat, email } = req.body;
     const userId = req.params.id;
 
     // Cek user ada
@@ -85,6 +92,22 @@ router.put('/:id', authMiddleware, roleMiddleware('admin'), async (req, res) => 
         params.push(role);
       }
     }
+    if (jabatan !== undefined) {
+      updates.push('jabatan = ?');
+      params.push(jabatan && jabatan.trim() ? jabatan.trim() : null);
+    }
+    if (no_hp !== undefined) {
+      updates.push('no_hp = ?');
+      params.push(no_hp && no_hp.trim() ? no_hp.trim() : null);
+    }
+    if (alamat !== undefined) {
+      updates.push('alamat = ?');
+      params.push(alamat && alamat.trim() ? alamat.trim() : null);
+    }
+    if (email !== undefined) {
+      updates.push('email = ?');
+      params.push(email && email.trim() ? email.trim() : null);
+    }
     if (is_active !== undefined) {
       updates.push('is_active = ?');
       params.push(is_active ? 1 : 0);
@@ -104,7 +127,7 @@ router.put('/:id', authMiddleware, roleMiddleware('admin'), async (req, res) => 
 
     // Ambil data user terbaru
     const [updated] = await db.execute(
-      'SELECT id, username, name, role, is_active, created_at FROM users WHERE id = ?',
+      'SELECT id, username, name, role, jabatan, no_hp, alamat, email, is_active, created_at FROM users WHERE id = ?',
       [userId]
     );
 

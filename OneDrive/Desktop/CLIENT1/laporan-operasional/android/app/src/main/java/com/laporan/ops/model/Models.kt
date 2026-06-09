@@ -14,7 +14,16 @@ data class LoginResponse(
 
 data class LoginData(val token: String, val user: User)
 
-data class User(val id: Int, val username: String, val name: String, val role: String)
+data class User(
+    val id: Int,
+    val username: String,
+    val name: String,
+    val role: String,
+    val jabatan: String? = null,
+    @SerializedName("no_hp") val noHp: String? = null,
+    val alamat: String? = null,
+    val email: String? = null
+)
 
 data class ChangePasswordRequest(
     @SerializedName("old_password") val oldPassword: String,
@@ -97,6 +106,10 @@ data class UserDetail(
     val username: String,
     val name: String,
     val role: String,
+    val jabatan: String? = null,
+    @SerializedName("no_hp") val noHp: String? = null,
+    val alamat: String? = null,
+    val email: String? = null,
     @SerializedName("is_active")  val isActive: Int,
     @SerializedName("created_at") val createdAt: String?
 )
@@ -107,7 +120,11 @@ data class CreateUserRequest(
     val username: String,
     val password: String,
     val name: String,
-    val role: String = "teknisi"
+    val role: String = "teknisi",
+    val jabatan: String? = null,
+    @SerializedName("no_hp") val noHp: String? = null,
+    val alamat: String? = null,
+    val email: String? = null
 )
 
 data class CreateUserResponse(
@@ -120,7 +137,11 @@ data class UpdateUserRequest(
     val name: String? = null,
     val role: String? = null,
     @SerializedName("is_active") val isActive: Boolean? = null,
-    val password: String? = null
+    val password: String? = null,
+    val jabatan: String? = null,
+    @SerializedName("no_hp") val noHp: String? = null,
+    val alamat: String? = null,
+    val email: String? = null
 )
 
 data class UpdateUserResponse(
