@@ -60,7 +60,7 @@ const login = async (req, res) => {
 const getProfile = async (req, res) => {
   try {
     const [rows] = await db.execute(
-      'SELECT id, username, name, role, created_at FROM users WHERE id = ?',
+      'SELECT id, username, name, role, jabatan, no_hp, alamat, email, created_at FROM users WHERE id = ?',
       [req.user.id]
     );
     if (!rows.length) {

@@ -185,7 +185,11 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         style="@style/SectionTitle"
-                        android:text="📋 Laporan Terbaru" />
+                        android:drawableStart="@drawable/ic_list"
+                        android:drawablePadding="8dp"
+                        android:drawableTint="@color/text_primary"
+                        android:gravity="center_vertical"
+                        android:text="Laporan Terbaru" />
                 </LinearLayout>
 
                 <!-- Filter chips -->
@@ -216,11 +220,11 @@
                     android:padding="48dp"
                     android:visibility="gone">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="📭"
-                        android:textSize="40sp"
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_inbox"
+                        app:tint="@color/text_secondary"
                         android:layout_marginBottom="8dp" />
 
                     <TextView

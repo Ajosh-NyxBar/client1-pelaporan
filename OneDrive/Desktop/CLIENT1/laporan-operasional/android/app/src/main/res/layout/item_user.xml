@@ -52,6 +52,15 @@
                 android:text="Nama" />
 
             <TextView
+                android:id="@+id/tvJabatan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/primary"
+                android:visibility="gone"
+                android:text="Jabatan" />
+
+            <TextView
                 android:id="@+id/tvUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

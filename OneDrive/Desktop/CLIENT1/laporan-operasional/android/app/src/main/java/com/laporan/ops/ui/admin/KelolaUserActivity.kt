@@ -68,22 +68,30 @@ class KelolaUserActivity : AppCompatActivity() {
         val etName     = dialogView.findViewById<TextInputEditText>(R.id.etName)
         val etUsername  = dialogView.findViewById<TextInputEditText>(R.id.etUsername)
         val etPassword = dialogView.findViewById<TextInputEditText>(R.id.etPassword)
+        val etJabatan  = dialogView.findViewById<TextInputEditText>(R.id.etJabatan)
+        val etNoHp     = dialogView.findViewById<TextInputEditText>(R.id.etNoHp)
+        val etEmail    = dialogView.findViewById<TextInputEditText>(R.id.etEmail)
+        val etAlamat   = dialogView.findViewById<TextInputEditText>(R.id.etAlamat)
         val spRole     = dialogView.findViewById<Spinner>(R.id.spinnerRole)
 
         val roles = arrayOf("teknisi", "admin", "helpdesk")
         spRole.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, roles)
 
         MaterialAlertDialogBuilder(this)
-            .setTitle("👤 Tambah User Baru")
+            .setTitle("Tambah User Baru")
             .setView(dialogView)
             .setPositiveButton("Simpan") { _, _ ->
                 val name     = etName.text?.toString()?.trim().orEmpty()
                 val username = etUsername.text?.toString()?.trim().orEmpty()
                 val password = etPassword.text?.toString()?.trim().orEmpty()
+                val jabatan  = etJabatan.text?.toString()?.trim().orEmpty()
+                val noHp     = etNoHp.text?.toString()?.trim().orEmpty()
+                val email    = etEmail.text?.toString()?.trim().orEmpty()
+                val alamat   = etAlamat.text?.toString()?.trim().orEmpty()
                 val role     = roles[spRole.selectedItemPosition]
 
                 if (name.isEmpty() || username.isEmpty() || password.isEmpty()) {
-                    snack("Semua field wajib diisi!")
+                    snack("Nama, username, dan password wajib diisi!")
                     return@setPositiveButton
                 }
                 if (password.length < 6) {
@@ -91,7 +99,16 @@ class KelolaUserActivity : AppCompatActivity() {
                     return@setPositiveButton
                 }
 
-                doCreateUser(CreateUserRequest(username, password, name, role))
+                doCreateUser(CreateUserRequest(
+                    username = username,
+                    password = password,
+                    name = name,
+                    role = role,
+                    jabatan = jabatan.ifEmpty { null },
+                    noHp = noHp.ifEmpty { null },
+                    alamat = alamat.ifEmpty { null },
+                    email = email.ifEmpty { null }
+                ))
             }
             .setNegativeButton("Batal", null)
             .show()
@@ -103,7 +120,7 @@ class KelolaUserActivity : AppCompatActivity() {
             try {
                 val resp = RetrofitClient.instance.createUser(req)
                 if (resp.isSuccessful && resp.body()?.success == true) {
-                    snack("✅ ${resp.body()!!.message}")
+                    snack(resp.body()!!.message)
                     loadUsers()
                 } else {
                     snack(resp.body()?.message ?: "Gagal menambahkan user.")
@@ -117,15 +134,15 @@ class KelolaUserActivity : AppCompatActivity() {
     }
 
     private fun showUserOptionsDialog(user: UserDetail) {
-        val options = arrayOf("✏️ Edit Nama", "🔄 Ganti Role", "🔑 Reset Password",
-            if (user.isActive == 1) "🚫 Nonaktifkan" else "✅ Aktifkan",
-            "🗑️ Hapus")
+        val options = arrayOf("Edit Data Pegawai", "Ganti Role", "Reset Password",
+            if (user.isActive == 1) "Nonaktifkan" else "Aktifkan",
+            "Hapus")
 
         MaterialAlertDialogBuilder(this)
             .setTitle("${user.name} (@${user.username})")
             .setItems(options) { _, which ->
                 when (which) {
-                    0 -> showEditNameDialog(user)
+                    0 -> showEditPegawaiDialog(user)
                     1 -> showChangeRoleDialog(user)
                     2 -> showResetPasswordDialog(user)
                     3 -> doToggleActive(user)
@@ -135,18 +152,39 @@ class KelolaUserActivity : AppCompatActivity() {
             .show()
     }
 
-    private fun showEditNameDialog(user: UserDetail) {
-        val input = TextInputEditText(this).apply {
-            setText(user.name); setPadding(48, 24, 48, 8)
-        }
+    private fun showEditPegawaiDialog(user: UserDetail) {
+        val view = LayoutInflater.from(this).inflate(R.layout.dialog_edit_pegawai, null)
+        val etName    = view.findViewById<TextInputEditText>(R.id.etName)
+        val etJabatan = view.findViewById<TextInputEditText>(R.id.etJabatan)
+        val etNoHp    = view.findViewById<TextInputEditText>(R.id.etNoHp)
+        val etEmail   = view.findViewById<TextInputEditText>(R.id.etEmail)
+        val etAlamat  = view.findViewById<TextInputEditText>(R.id.etAlamat)
+
+        etName.setText(user.name)
+        etJabatan.setText(user.jabatan ?: "")
+        etNoHp.setText(user.noHp ?: "")
+        etEmail.setText(user.email ?: "")
+        etAlamat.setText(user.alamat ?: "")
+
         MaterialAlertDialogBuilder(this)
-            .setTitle("Edit Nama")
-            .setView(input)
+            .setTitle("Edit Data Pegawai")
+            .setView(view)
             .setPositiveButton("Simpan") { _, _ ->
-                val name = input.text?.toString()?.trim().orEmpty()
-                if (name.isNotEmpty()) doUpdateUser(user.id, UpdateUserRequest(name = name))
+                val name = etName.text?.toString()?.trim().orEmpty()
+                if (name.isEmpty()) {
+                    snack("Nama wajib diisi!")
+                    return@setPositiveButton
+                }
+                doUpdateUser(user.id, UpdateUserRequest(
+                    name = name,
+                    jabatan = etJabatan.text?.toString()?.trim().orEmpty(),
+                    noHp = etNoHp.text?.toString()?.trim().orEmpty(),
+                    email = etEmail.text?.toString()?.trim().orEmpty(),
+                    alamat = etAlamat.text?.toString()?.trim().orEmpty()
+                ))
             }
-            .setNegativeButton("Batal", null).show()
+            .setNegativeButton("Batal", null)
+            .show()
     }
 
     private fun showChangeRoleDialog(user: UserDetail) {
@@ -194,7 +232,7 @@ class KelolaUserActivity : AppCompatActivity() {
             try {
                 val resp = RetrofitClient.instance.updateUser(id, req)
                 if (resp.isSuccessful && resp.body()?.success == true) {
-                    snack("✅ ${resp.body()!!.message}")
+                    snack(resp.body()!!.message)
                     loadUsers()
                 } else {
                     snack(resp.body()?.message ?: "Gagal memperbarui.")
@@ -208,7 +246,7 @@ class KelolaUserActivity : AppCompatActivity() {
             try {
                 val resp = RetrofitClient.instance.deleteUser(id)
                 if (resp.isSuccessful && resp.body()?.success == true) {
-                    snack("✅ ${resp.body()!!.message}")
+                    snack(resp.body()!!.message)
                     loadUsers()
                 } else {
                     snack(resp.body()?.message ?: "Gagal menghapus.")

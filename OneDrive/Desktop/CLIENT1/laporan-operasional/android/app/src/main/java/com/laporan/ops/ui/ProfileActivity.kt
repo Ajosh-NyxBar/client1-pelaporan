@@ -47,6 +47,10 @@ class ProfileActivity : AppCompatActivity() {
                         b.tvName.text    = user.name
                         b.tvUsername.text = "@${user.username}"
                         b.chipRole.text  = user.role.replaceFirstChar { it.uppercase() }
+                        b.tvJabatan.text = user.jabatan?.takeIf { it.isNotBlank() } ?: "–"
+                        b.tvNoHp.text    = user.noHp?.takeIf { it.isNotBlank() } ?: "–"
+                        b.tvEmail.text   = user.email?.takeIf { it.isNotBlank() } ?: "–"
+                        b.tvAlamat.text  = user.alamat?.takeIf { it.isNotBlank() } ?: "–"
                     }
                 }
             } catch (_: Exception) {}
@@ -83,7 +87,7 @@ class ProfileActivity : AppCompatActivity() {
                     ChangePasswordRequest(oldPass, newPass)
                 )
                 if (resp.isSuccessful && resp.body()?.success == true) {
-                    snack("✅ Password berhasil diubah!")
+                    snack("Password berhasil diubah!")
                     b.etOldPass.text?.clear()
                     b.etNewPass.text?.clear()
                     b.etConfirmPass.text?.clear()

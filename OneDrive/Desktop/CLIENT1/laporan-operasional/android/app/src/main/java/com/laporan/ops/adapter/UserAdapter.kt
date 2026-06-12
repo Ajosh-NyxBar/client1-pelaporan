@@ -35,6 +35,13 @@ class UserAdapter(
             tvUsername.text  = "@${user.username}"
             chipRole.text   = user.role.replaceFirstChar { it.uppercase() }
 
+            if (!user.jabatan.isNullOrBlank()) {
+                tvJabatan.text = user.jabatan
+                tvJabatan.visibility = android.view.View.VISIBLE
+            } else {
+                tvJabatan.visibility = android.view.View.GONE
+            }
+
             // Role chip color
             val (bgColor, textColor) = when (user.role) {
                 "admin"    -> Color.parseColor("#F3E5F5") to Color.parseColor("#7B1FA2")

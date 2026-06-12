@@ -145,7 +145,11 @@
                         android:layout_width="wrap_content" android:layout_height="wrap_content"
                         android:textSize="12sp" android:textColor="@color/primary"
                         android:textStyle="bold"
-                        android:text="📷 0 foto terlampir" />
+                        android:drawableStart="@drawable/ic_camera"
+                        android:drawablePadding="6dp"
+                        android:drawableTint="@color/primary"
+                        android:gravity="center_vertical"
+                        android:text="0 foto terlampir" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -316,8 +320,10 @@
                         style="@style/RoundedButton"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
-                        android:text="💾 Simpan Tindak Lanjut"
+                        android:text="Simpan Tindak Lanjut"
                         android:textSize="13sp"
+                        app:icon="@drawable/ic_save"
+                        app:iconGravity="textStart"
                         app:backgroundTint="@color/role_helpdesk" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -357,8 +363,10 @@
                             style="@style/RoundedButton"
                             android:layout_width="0dp" android:layout_height="48dp"
                             android:layout_weight="1" android:layout_marginEnd="8dp"
-                            android:text="✅ Setujui"
+                            android:text="Setujui"
                             android:textSize="13sp"
+                            app:icon="@drawable/ic_check"
+                            app:iconGravity="textStart"
                             app:backgroundTint="@color/status_approved" />
 
                         <com.google.android.material.button.MaterialButton
@@ -366,8 +374,10 @@
                             style="@style/RoundedButton"
                             android:layout_width="0dp" android:layout_height="48dp"
                             android:layout_weight="1"
-                            android:text="❌ Tolak"
+                            android:text="Tolak"
                             android:textSize="13sp"
+                            app:icon="@drawable/ic_close"
+                            app:iconGravity="textStart"
                             app:backgroundTint="@color/status_rejected" />
                     </LinearLayout>
                 </LinearLayout>

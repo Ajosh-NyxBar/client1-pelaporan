@@ -72,7 +72,7 @@ class KelolaTowerActivity : AppCompatActivity() {
         val etAlamat = view.findViewById<TextInputEditText>(R.id.etAlamatTower)
 
         MaterialAlertDialogBuilder(this)
-            .setTitle("🗼 Tambah Tower Baru")
+            .setTitle("Tambah Tower Baru")
             .setView(view)
             .setPositiveButton("Simpan") { _, _ ->
                 val nama   = etNama.text?.toString()?.trim().orEmpty()
@@ -93,7 +93,7 @@ class KelolaTowerActivity : AppCompatActivity() {
             try {
                 val resp = RetrofitClient.instance.createTower(req)
                 if (resp.isSuccessful && resp.body()?.success == true) {
-                    snack("✅ ${resp.body()!!.message}")
+                    snack(resp.body()!!.message)
                     loadTowers()
                 } else {
                     snack(resp.body()?.message ?: "Gagal menambahkan tower.")
@@ -108,9 +108,9 @@ class KelolaTowerActivity : AppCompatActivity() {
 
     private fun showTowerOptionsDialog(tower: Tower) {
         val options = arrayOf(
-            "✏️ Edit Nama & Alamat",
-            if (tower.isActive == 1) "🚫 Nonaktifkan" else "✅ Aktifkan",
-            "🗑️ Hapus"
+            "Edit Nama & Alamat",
+            if (tower.isActive == 1) "Nonaktifkan" else "Aktifkan",
+            "Hapus"
         )
 
         MaterialAlertDialogBuilder(this)
@@ -133,7 +133,7 @@ class KelolaTowerActivity : AppCompatActivity() {
         etAlamat.setText(tower.alamat ?: "")
 
         MaterialAlertDialogBuilder(this)
-            .setTitle("✏️ Edit Tower")
+            .setTitle("Edit Tower")
             .setView(view)
             .setPositiveButton("Simpan") { _, _ ->
                 val nama   = etNama.text?.toString()?.trim().orEmpty()
@@ -167,7 +167,7 @@ class KelolaTowerActivity : AppCompatActivity() {
             try {
                 val resp = RetrofitClient.instance.updateTower(id, req)
                 if (resp.isSuccessful && resp.body()?.success == true) {
-                    snack("✅ ${resp.body()!!.message}")
+                    snack(resp.body()!!.message)
                     loadTowers()
                 } else {
                     snack(resp.body()?.message ?: "Gagal memperbarui tower.")
@@ -181,7 +181,7 @@ class KelolaTowerActivity : AppCompatActivity() {
             try {
                 val resp = RetrofitClient.instance.deleteTower(id)
                 if (resp.isSuccessful && resp.body()?.success == true) {
-                    snack("✅ ${resp.body()!!.message}")
+                    snack(resp.body()!!.message)
                     loadTowers()
                 } else {
                     snack(resp.body()?.message ?: "Gagal menghapus tower.")
